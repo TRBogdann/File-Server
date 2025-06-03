@@ -1,5 +1,6 @@
 # Server-Client Text File Management System
 
+- Utilizare porneste server.py din server apoi client.py din client
 - Server-ul gestionează o listă de fișiere text dintr-un director gazdă;
 - Clientul se autentifică prin nume și primește lista fișierelor text, precum și numele utilizatorului care are în editare fiecare fișier;
 - Orice client autentificat poate solicita spre vizualizare conținutul unui fișier, caz în care server-ul îi trimite ultima versiune de pe disc a acestuia;
