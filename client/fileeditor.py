@@ -86,7 +86,7 @@ class FileEditor:
         self.editor = Toplevel()
         self.editor.title(f"{self.filename} - Notepad")
         self.editor.geometry('1600x1000')
-        self.editor.resizable(0, 0)
+        # self.editor.resizable(0, 0)
         self.editor.protocol("WM_DELETE_WINDOW", self.on_toplevel_close)
 
         self.editor.columnconfigure(0, weight=1)
