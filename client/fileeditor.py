@@ -86,7 +86,8 @@ class FileEditor:
         self.editor = Toplevel()
         self.editor.title(f"{self.filename} - Notepad")
         self.editor.geometry('1600x1000')
-        # self.editor.resizable(0, 0)
+        icon_image = tk.PhotoImage(file='./Notepad.png')
+        self.editor.iconphoto(False, icon_image)
         self.editor.protocol("WM_DELETE_WINDOW", self.on_toplevel_close)
 
         self.editor.columnconfigure(0, weight=1)

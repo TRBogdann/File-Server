@@ -4,6 +4,7 @@ from tkinter import messagebox
 from loginform import LogInForm
 from manager import ConnectionManager
 from main_form import MainForm
+import tkinter as tk
 
     
 class App:
@@ -17,6 +18,8 @@ class App:
         self.root = Tk()
         self.root.title("Login - Notepad")
         self.root.geometry("1000x800")
+        icon_image = tk.PhotoImage(file='./Notepad.png')
+        self.root.iconphoto(False, icon_image)
         self.root.resizable(False, False)
         self.root.configure(bg="#f0f0f0")
         self.login = LogInForm(self.root,self.showMain,self.connectionManager)
