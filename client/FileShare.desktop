@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=File Share
+Comment=File Server
+Exec= ~/File-Server/client/run.sh
+Icon=~/.config/FileSharing/icon.png
+Terminal=false
+Type=Application
+Categories=Utilities;

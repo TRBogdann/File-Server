@@ -6,33 +6,38 @@ from server_modules.file_manager import FileManager
 from server_modules.notifier import Notifier
 from server_modules.worker import Worker
 import socket
+import os
+import json
 
 #Server Config
 
 #1. Users
+home = os.getenv('HOME')
 connections = []
 capacity = 10 
 notifications = []
-db = UserDataBase('users.db')
+db = UserDataBase(home+'/.file-server/users.db')
 edit_permission,create_permission,delete_permission = utils.createPermissions()
 
 #2. Folder
-folder = './files'
+folder = home+'/.file-server/files'
 fileManager = FileManager(folder,[edit_permission ,create_permission, delete_permission])
 
 #2. Handler
 handler = RequestHandler(db,connections,notifications,fileManager)
 
 #3 Notifier
-
 notifier = Notifier(connections,fileManager)
 notifier.startNotifier()
 
 #Socket
+config  = home+"/.config/FileServer/config.json"
+settings = json.load(open(config))
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-server.bind(("0.0.0.0",2020))
-server.listen(20)
+server.bind((settings["host"],settings["port"]))
+server.listen(settings["connection_limit"])
 
 print("Server started")
 while True:

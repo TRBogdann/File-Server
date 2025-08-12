@@ -1,0 +1,8 @@
+{
+    "server_adress":"0.0.0.0",
+    "server_port":2020,
+    "host": "0.0.0.0",
+    "sender_port":3030,
+    "broadcast_port":3031,
+    "allowed_ports":[2021,2022]
+}

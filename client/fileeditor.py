@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 from request import RequestBuilder
+import os
 
 class FileEditor:
     def __init__(self,root,filename,filecontent,mode,connectionmanager):
@@ -86,7 +87,8 @@ class FileEditor:
         self.editor = Toplevel()
         self.editor.title(f"{self.filename} - Notepad")
         self.editor.geometry('1600x1000')
-        icon_image = tk.PhotoImage(file='./Notepad.png')
+        icon = os.getenv('HOME') + '/.config/FileSharing/Notepad.png'
+        icon_image = tk.PhotoImage(file=icon)
         self.editor.iconphoto(False, icon_image)
         self.editor.protocol("WM_DELETE_WINDOW", self.on_toplevel_close)
 

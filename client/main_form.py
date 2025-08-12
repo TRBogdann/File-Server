@@ -3,7 +3,7 @@ from tkinter import messagebox, Toplevel
 from request import RequestBuilder
 from manager import ConnectionManager
 from fileeditor import FileEditor
-
+import os
 class MainForm:
     def __init__(self, root, connectionManager: ConnectionManager):
         self.connectionManager = connectionManager
@@ -137,7 +137,8 @@ class MainForm:
         self.app_window.title("Welcome")
         self.app_window.geometry("800x500")
         self.app_window.configure(bg="#e0f7fa")
-        icon_image = tk.PhotoImage(file='./Notepad.png')
+        icon_image = tk.PhotoImage(os.getenv('HOME')+
+        '/.config/FileSharing/icon.png')
         self.app_window.iconphoto(False, icon_image)
         self.app_window.protocol("WM_DELETE_WINDOW", self.on_toplevel_close)
         self.load()
